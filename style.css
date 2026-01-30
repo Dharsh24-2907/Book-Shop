@@ -1,0 +1,376 @@
+/*================= GLOBAL =================*/
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Outfit", sans-serif;
+}
+
+body{
+  scroll-behavior:smooth;
+  transition: background 0.3s, color 0.3s;
+}
+
+/*================= LIGHT MODE =================*/
+body.light-mode {
+  background: #fff;
+  color: #333; /* Default text color */
+}
+
+body.light-mode #home {
+  color: brown;
+}
+
+body.light-mode #about {
+  background: #a0522d;
+  color: white;
+}
+
+body.light-mode .light-bg {
+  background: #f6f7fb;
+  color: #333;
+}
+
+body.light-mode .soft-bg {
+  background: #eef2f3;
+  color: #333;
+}
+
+body.light-mode .book-card {
+  background: white;
+  color: #333;
+  box-shadow: 12px 12px 25px rgba(0,0,0,0.25);
+}
+
+body.light-mode form input,
+body.light-mode form textarea {
+  background: white;
+  color: #333;
+  border: 2px solid black;
+}
+
+/*================= DARK MODE =================*/
+body.dark-mode {
+  background: #121212;
+  color: #e0e0e0;
+}
+
+body.dark-mode #home {
+  color: #ffcc33;
+}
+
+body.dark-mode #about {
+  background: #4b2e2e;
+  color: #fff;
+}
+
+body.dark-mode .light-bg {
+  background: #1c1c1c;
+  color: #e0e0e0;
+}
+
+body.dark-mode .soft-bg {
+  background: #2a2a2a;
+  color: #e0e0e0;
+}
+
+body.dark-mode .book-card {
+  background: #1e1e1e;
+  color: #fff;
+  box-shadow: 12px 12px 25px rgba(255,255,255,0.05);
+}
+
+body.dark-mode form input,
+body.dark-mode form textarea {
+  background: #2a2a2a;
+  color: white;
+  border: 2px solid white;
+}
+
+/*================= LOADER =================*/
+#loader{
+  position:fixed;
+  width:100%;
+  height:100%;
+  background:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:1000;
+}
+
+#loader .spinner{
+  border:8px solid #f3f3f3;
+  border-top:8px solid #ffb347;
+  border-radius:50%;
+  width:60px;
+  height:60px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin{
+  0%{transform:rotate(0deg);}
+  100%{transform:rotate(360deg);}
+}
+
+/*================= THEME TOGGLE =================*/
+.theme-toggle{
+  position:fixed;
+  top:80px;
+  right:20px;
+  z-index:200;
+}
+
+.theme-toggle input{
+  display:none;
+}
+
+.theme-toggle label{
+  cursor:pointer;
+  background:#ffb347;
+  padding:10px 15px;
+  border-radius:30px;
+  transition:0.3s;
+}
+
+.theme-toggle label:hover{
+  transform:scale(1.1);
+}
+
+/*================= NAVBAR =================*/
+.navbar{
+  position:fixed;
+  top:0;
+  width:100%;
+  background:brown;
+  color:white;
+  display:flex;
+  justify-content:space-between;
+  padding:15px 40px;
+  z-index:100;
+}
+
+.navbar ul{
+  list-style:none;
+  display:flex;
+}
+
+.navbar ul li a{
+  color:white;
+  margin-left:20px;
+  text-decoration:none;
+}
+
+/*================= HOME =================*/
+#home{
+  height:100vh;
+  background:url("home1.jpg") center/cover no-repeat;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+
+#home h1{
+  font-size:4rem;
+  font-weight:300;
+}
+
+#home p{
+  letter-spacing:5px;
+  font-weight:800;
+  color:brown;
+  margin-bottom:30px;
+}
+
+/* GET LATEST READS BUTTON */
+.get-reads-btn{
+  background:linear-gradient(135deg, #ffb347, #ffcc33);
+  border:none;
+  padding:15px 35px;
+  font-weight:700;
+  cursor:pointer;
+  border-radius:30px;
+  font-size:1.2rem;
+  transition:0.3s ease, transform 0.3s ease;
+  animation: pulse 2s infinite;
+}
+
+.get-reads-btn:hover{
+  background:linear-gradient(135deg, #ffcc33, #ffb347);
+  transform:scale(1.1);
+}
+
+@keyframes pulse{
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/*================= SECTIONS =================*/
+section{
+  padding:100px 40px;
+}
+
+.section-title{
+  text-align:center;
+  font-size:36px;
+  margin-bottom:40px;
+}
+
+/* ABOUT SECTION */
+#about {
+  padding:100px 20px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+}
+
+.about-container{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:30px;
+  max-width:1000px;
+  margin:auto;
+}
+
+.about-container img{
+  width:500px;
+  max-width:90%;
+  border-radius:15px;
+  object-fit:cover;
+}
+
+.about-text{
+  font-size:18px;
+  line-height:1.8;
+  max-width:800px;
+}
+
+/* BOOKS */
+.books-container{
+  display:flex;
+  gap:30px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.book-card{
+  width:240px;
+  background:white;
+  padding:15px;
+  border-radius:20px;
+  box-shadow:12px 12px 25px rgba(0,0,0,0.25);
+  text-align:center;
+  transition:0.3s ease, transform 0.5s ease;
+  cursor:pointer;
+}
+
+.book-card img{
+  width:100%;
+  height:280px;
+  object-fit:cover;
+  border-radius:12px;
+}
+
+/* BOOK HOVER ANIMATION */
+.book-card:hover{
+  transform: scale(1.08) translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+/* CONTACT */
+form{
+  max-width:450px;
+  margin:auto;
+  display:flex;
+  flex-direction:column;
+}
+
+form input, form textarea{
+  padding:12px;
+  margin-bottom:15px;
+  border-radius:8px;
+  border:2px solid black;
+  transition:0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+form input:hover, form textarea:hover{
+  transform:scale(1.03);
+  box-shadow:0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* SEND MESSAGE BUTTON */
+.main-btn{
+  background:linear-gradient(135deg, #6a11cb, #2575fc);
+  color:white;
+  border:none;
+  padding:12px 25px;
+  border-radius:30px;
+  font-weight:700;
+  cursor:pointer;
+  font-size:1rem;
+  transition:0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.main-btn:hover{
+  background:linear-gradient(135deg, #2575fc, #6a11cb);
+  transform:scale(1.08);
+  box-shadow:0 12px 25px rgba(0,0,0,0.4);
+}
+
+/* SCROLL TO TOP BUTTON */
+#scrollTopBtn{
+  position:fixed;
+  bottom:30px;
+  right:30px;
+  padding:12px 18px;
+  font-size:20px;
+  border:none;
+  border-radius:50%;
+  background:brown;
+  color:white;
+  cursor:pointer;
+  display:none;
+  z-index:200;
+  transition:0.3s;
+}
+
+#scrollTopBtn:hover{
+  background:#ffb347;
+  transform:scale(1.1);
+}
+
+/* FOOTER */
+footer{
+  background:black;
+  color:white;
+  text-align:center;
+  padding:15px;
+}
+
+footer .social-links{
+  margin-top:5px;
+}
+
+footer .social-links a{
+  color:#ffcc33;
+  text-decoration:none;
+  margin:0 5px;
+  transition:0.3s ease;
+}
+
+footer .social-links a:hover{
+  transform:scale(1.1);
+}
+
+/*================= RESPONSIVE =================*/
+@media(max-width:768px){
+  #home h1{font-size:2.5rem;}
+  .about-container{flex-direction:column;}
+  .about-container img{width:90%;}
+  .about-text{text-align:center;}
+}
